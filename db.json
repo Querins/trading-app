@@ -1,0 +1,74 @@
+{
+    "users": [
+        {
+            "id": 0,
+            "name": "Roman Koval"
+        },
+        {
+            "id": 1,
+            "name": "Alex Querins"
+        },
+        {
+            "id": 2,
+            "name": "Alexander Dumas" 
+        },
+        {
+            "id": 3,
+            "name": "Worren Buffet"
+        }
+    ],
+    "accounts": [
+        {
+            "id": 0,
+            "ownerId": 0,
+            "currency": 0,
+            "balance": 2334.34
+        },
+        {
+            "id": 1,
+            "ownerId": 1,
+            "currency": 0,
+            "balance": 1200
+        },
+        {
+            "id": 2,
+            "ownerId": 1,
+            "currency": 0,
+            "balance": 0.25
+        },
+        {
+            "id": 3,
+            "ownerId": 2,
+            "currency": 0,
+            "balance": 74.03
+        },
+        {
+            "id": 4,
+            "ownerId": 3,
+            "currency": 0,
+            "balance": 14178
+        },
+        {
+            "id": 5,
+            "ownerId": 3,
+            "currency": 0,
+            "balance": 10127.32
+        },
+        {
+            "id": 6,
+            "ownerId": 3,
+            "currency": 0,
+            "balance": 74000
+        }
+    ],
+    "currencies": [
+        {
+            "id": 0,
+            "name": "USD"
+        },
+        {
+            "id": 1,
+            "name": "EUR"
+        }
+    ]
+}
