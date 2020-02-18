@@ -1,4 +1,5 @@
 import React from 'react';
+import ClientInfo from './ClientIfo'
 import './App.css';
 
 class App extends React.Component {
@@ -25,10 +26,7 @@ class App extends React.Component {
         </thead>
         <tbody>
           { this.state.clients.map(client => (
-          <tr>
-            <td>{client.id}</td>
-            <td>{client.name}</td>
-          </tr>
+            <ClientInfo client={client}/>
         ) ) }
         </tbody>
 
