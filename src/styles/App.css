@@ -1,3 +1,9 @@
+.container {
+  display: flex;
+  justify-content: stretch;
+  padding: 10px;
+}
+
 table {
     border-collapse: collapse;
 }
