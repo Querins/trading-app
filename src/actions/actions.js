@@ -6,7 +6,12 @@ export const DELETE_USER = 'DELETE_USER';
 
 export default {
     fetchUsers: () => {
-        type: FETCH_USERS
+        type: FETCH_USERS,
+        users
+    },
+    fetchAccounts: () => {
+        type: FETCH_ACCOUNTS,
+        accounts
     },
     addUser: (user) => {
         type: ADD_USER,
@@ -15,9 +20,5 @@ export default {
     deleteUser: id => {
         type: DELETE_USER,
         userId: id
-    },
-    editUser: user => {
-        type: EDIT_USER,
-        user
     }
 }

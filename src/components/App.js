@@ -1,16 +1,15 @@
 import React from 'react';
-import ClientInfo from './ClientIfo'
+import ClientsTable from './ClientsTable'
 
 class App extends React.Component {
 
   render() {
     return (
       <div className="container">
-        <ClientInfo />
+        <ClientsTable />
       </div>
     );
   }
-
 }
 
 export default App;
