@@ -1,24 +1,41 @@
-export const FETCH_USERS = 'FETCH_USERS';
-export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS';
+export const ADD_USERS = 'ADD_USERS';
+export const ADD_ACCOUNTS = 'ADD_ACCOUNTS';
 export const ADD_USER = 'ADD_USER';
 export const EDIT_USER = 'EDIT_USER';
 export const DELETE_USER = 'DELETE_USER';
 
-export default {
-    fetchUsers: () => {
-        type: FETCH_USERS,
+export function addUsers(users) {
+    return {
+        type: ADD_USERS,
         users
-    },
-    fetchAccounts: () => {
-        type: FETCH_ACCOUNTS,
-        accounts
-    },
-    addUser: (user) => {
-        type: ADD_USER,
+    }
+}
+
+export function addUser(user) {
+    return {
+        type: ADD_USERS,
         user
-    },
-    deleteUser: id => {
-        type: DELETE_USER,
-        userId: id
+    }
+}
+
+export function deleteUser(id) {
+    return {
+        type: ADD_USERS,
+        id
+    }
+}
+
+export function editUser(newUser) {
+    return {
+        type: ADD_USERS,
+        user: newUser
+    }
+}
+
+export function addAccouns(userId, accounts) {
+    return {
+        type: ADD_USERS,
+        id: userId,
+        accounts
     }
 }

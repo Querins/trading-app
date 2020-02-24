@@ -1,27 +1,44 @@
 import React from 'react';
 import '../styles/ClientsTable.css';
-import actions from '../actions/actions';
-
-export default class ClientsTable extends React.Component {
+import {addUsers} from '../actions/actions';
+import { connect } from 'react-redux';
+class ClientsTable extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-      this.props.dispatch(actions.fetchUsers());
+      fetch('http://locahost:8080/users')
+      .then(resp => resp.json())
+      .then(users => this.props.dispatch(addUsers(users)));
   }
 
   render() {
     return (
-      <div className="container">
-        <div className="header">
-          <h1>Clients Information</h1>
-        </div>
-        <div className="clientsContainer">
-          
-        </div>
-      </div>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>First name</th>
+          <th>Last Name</th>
+        </tr>
+        {
+          this.props.users.map(user => (
+          <tr>
+            <td>{user.id}</td>
+            <td>{user.firstName}</td>
+            <td>{user.lastName}</td>
+          </tr>))
+        }
+      </table>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    users: state.users  
+  }
+}
+
+export default connect(mapStateToProps)(ClientsTable);

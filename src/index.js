@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import App from "./components/App";
 import { createStore } from "redux";
+import root from "./reducers/rootReducer";
 
 export const initialState = {
     users: [],
@@ -10,7 +11,7 @@ export const initialState = {
     currencies: []
 }
 
-const store = createStore();
+const store = createStore(root);
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,8 +1,9 @@
 import {
-  FETCH_USERS,
+  ADD_USERS,
   ADD_USER,
   DELETE_USER,
   EDIT_USER,
+  ADD_ACCOUNTS
 } from '../actions/actions';
 import {
   initialState
@@ -10,13 +11,13 @@ import {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_ACCOUNTS:
+    case ADD_ACCOUNTS:
       return {
         ...state,
         accounts: action.acounts
       }
 
-      case FETCH_USERS: {
+      case ADD_USERS: {
         return {
           ...state,
           users: action.users
@@ -24,7 +25,7 @@ export default (state = initialState, action) => {
       }
 
       case DELETE_USER:
-        return state.users.filter(user => user.id != action.userId);
+        return state.users.filter(user => user.id !== action.userId);
 
       case ADD_USER: {
         state.users.push(action.user);

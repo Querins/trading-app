@@ -1,5 +1,6 @@
 import React from 'react';
-import ClientsTable from './ClientsTable'
+import ClientsTable from './ClientsTable';
+import AccountTable from './AccountTable';
 
 class App extends React.Component {
 
@@ -7,6 +8,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <ClientsTable />
+        <AccountTable />
       </div>
     );
   }
