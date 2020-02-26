@@ -1,17 +1,8 @@
-table,
-th,
-td {
-  border: 1px solid black;
-}
+@import "App.css";
+@import "ClientsTable.css";
 
 table {
   border-collapse: collapse;
-}
-
-table,
-th,
-td {
-  border: 1px solid black;
 }
 
 th,

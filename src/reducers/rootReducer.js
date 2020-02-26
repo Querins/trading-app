@@ -3,7 +3,9 @@ import {
   ADD_USER,
   DELETE_USER,
   EDIT_USER,
-  ADD_ACCOUNTS
+  SELECT_USER,
+  ADD_ACCOUNTS,
+  ADD_CURRENCIES
 } from '../actions/actions';
 import {
   initialState
@@ -12,9 +14,10 @@ import {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_ACCOUNTS:
+      debugger;
       return {
         ...state,
-        accounts: action.acounts
+        accounts: action.accounts
       }
 
       case ADD_USERS: {
@@ -30,6 +33,17 @@ export default (state = initialState, action) => {
       case ADD_USER: {
         state.users.push(action.user);
         return state;
+      }
+
+      case ADD_CURRENCIES: {
+        state.currencies.push(action.currencies);
+      }
+
+      case SELECT_USER: {
+        return {
+          ...state,
+          selectedUser: action.user
+        }
       }
 
       default:

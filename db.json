@@ -2,19 +2,27 @@
     "users": [
         {
             "id": 0,
-            "name": "Roman Koval"
+            "firstName": "Roman",
+            "lastName": "Koval",
+            "login": "qasd43"
         },
         {
             "id": 1,
-            "name": "Alex Querins"
+            "firstName": "Alex",
+            "lastName": "Querins",
+            "login": "wer4"        
         },
         {
             "id": 2,
-            "name": "Alexander Dumas" 
+            "firstName": "Jane",
+            "lastName": "Oustin",
+            "login": "ergrg34"
         },
         {
             "id": 3,
-            "name": "Worren Buffet"
+            "firstName": "Warren",
+            "lastName": "Buffet",
+            "login": "erggbE785"
         }
     ],
     "accounts": [
@@ -39,13 +47,13 @@
         {
             "id": 3,
             "ownerId": 2,
-            "currency": 0,
+            "currency": 3,
             "balance": 74.03
         },
         {
             "id": 4,
             "ownerId": 3,
-            "currency": 0,
+            "currency": 1,
             "balance": 14178
         },
         {

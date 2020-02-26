@@ -1,44 +1,60 @@
 import React from 'react';
-import '../styles/ClientsTable.css';
 import {addUsers} from '../actions/actions';
 import { connect } from 'react-redux';
+import { selectUser } from '../actions/actions'
+
 class ClientsTable extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
 
   componentDidMount() {
-      fetch('http://locahost:8080/users')
+      fetch('http://localhost:8080/users')
       .then(resp => resp.json())
       .then(users => this.props.dispatch(addUsers(users)));
   }
 
   render() {
     return (
-      <table>
+      <div>
+              <table>
+        <thead>
         <tr>
           <th>ID</th>
-          <th>First name</th>
+          <th>Login</th>
+          <th>First Name</th>
           <th>Last Name</th>
         </tr>
+        </thead>
+        <tbody>
         {
           this.props.users.map(user => (
-          <tr>
-            <td>{user.id}</td>
-            <td>{user.firstName}</td>
-            <td>{user.lastName}</td>
-          </tr>))
+            <tr key={user.id} onClick = {this.props.selectUser.bind(this, user)}>
+              <td>{user.id}</td>
+              <td>{user.login}</td>
+              <td>{user.firstName}</td>
+              <td>{user.lastName}</td>
+            </tr>))
         }
+        </tbody>
       </table>
+
+      </div>
     );
   }
 }
 
-function mapStateToProps(state) {
+const  mapStateToProps = state => {
   return {
+    selectedUser: state.selectedUser,
     users: state.users  
   }
 }
 
-export default connect(mapStateToProps)(ClientsTable);
+const mapDispatchToProps = dispatch => {
+
+  return {
+    selectUser: user => dispatch(selectUser(user)),
+    dispatch
+  }
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ClientsTable);
