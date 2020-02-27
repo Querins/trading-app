@@ -6,9 +6,7 @@ import { addCurrencies } from '../actions/actions'
 class AccountInfo extends React.Component {
   
   componentDidMount() {
-
-    debugger;
-
+    
     fetch('http://localhost:8080/accounts')
     .then(resp => resp.json())
     .then(accounts => this.props.dispatch(addAccounts(accounts)));

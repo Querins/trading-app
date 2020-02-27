@@ -14,7 +14,6 @@ import {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_ACCOUNTS:
-      debugger;
       return {
         ...state,
         accounts: action.accounts
@@ -27,8 +26,12 @@ export default (state = initialState, action) => {
         }
       }
 
-      case DELETE_USER:
-        return state.users.filter(user => user.id !== action.userId);
+      case DELETE_USER: {
+        return {
+          ...state,
+          users: state.users.filter(user => user.id !== action.id)
+        }
+      }
 
       case ADD_USER: {
         state.users.push(action.user);
@@ -37,6 +40,7 @@ export default (state = initialState, action) => {
 
       case ADD_CURRENCIES: {
         state.currencies.push(action.currencies);
+        return state;
       }
 
       case SELECT_USER: {

@@ -1,7 +1,8 @@
 import React from 'react';
 import {addUsers} from '../actions/actions';
 import { connect } from 'react-redux';
-import { selectUser } from '../actions/actions'
+import { selectUser, deleteUser } from '../actions/actions'
+import '../styles/button.css'
 
 class ClientsTable extends React.Component {
 
@@ -17,6 +18,7 @@ class ClientsTable extends React.Component {
               <table>
         <thead>
         <tr>
+          <th></th>
           <th>ID</th>
           <th>Login</th>
           <th>First Name</th>
@@ -27,6 +29,7 @@ class ClientsTable extends React.Component {
         {
           this.props.users.map(user => (
             <tr key={user.id} onClick = {this.props.selectUser.bind(this, user)}>
+              <td><button className={"deleteBtn"} onClick={this.props.deleteUser.bind(this, user)}>DELETE</button></td>
               <td>{user.id}</td>
               <td>{user.login}</td>
               <td>{user.firstName}</td>
@@ -52,6 +55,12 @@ const mapDispatchToProps = dispatch => {
 
   return {
     selectUser: user => dispatch(selectUser(user)),
+    deleteUser: user => {
+      fetch(`http://localhost:8080/users/${user.id}`, {
+        method: 'delete'
+      })
+      .then(dispatch(deleteUser(user.id)))
+    },
     dispatch
   }
 
