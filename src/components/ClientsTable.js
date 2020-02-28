@@ -13,6 +13,14 @@ class ClientsTable extends React.Component {
   }
 
   render() {
+
+    const {
+      selectUser,
+      selectedUser,
+      deleteUser,
+      users
+    } = this.props;
+
     return (
       <div>
               <table>
@@ -27,9 +35,9 @@ class ClientsTable extends React.Component {
         </thead>
         <tbody>
         {
-          this.props.users.map(user => (
-            <tr key={user.id} onClick = {this.props.selectUser.bind(this, user)}>
-              <td><button className={"deleteBtn"} onClick={this.props.deleteUser.bind(this, user)}>DELETE</button></td>
+          users.map(user => (
+            <tr key={user.id} onClick = {selectUser.bind(this, user)} className = {selectedUser && user.id === selectedUser.id ? "selected" : ""} tabIndex={0}>
+              <td><button className={"deleteBtn"} onClick={deleteUser.bind(this, user)}>DELETE</button></td>
               <td>{user.id}</td>
               <td>{user.login}</td>
               <td>{user.firstName}</td>
@@ -44,7 +52,7 @@ class ClientsTable extends React.Component {
   }
 }
 
-const  mapStateToProps = state => {
+const mapStateToProps = state => {
   return {
     selectedUser: state.selectedUser,
     users: state.users  

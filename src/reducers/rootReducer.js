@@ -29,13 +29,34 @@ export default (state = initialState, action) => {
       case DELETE_USER: {
         return {
           ...state,
+          selectedUser: null,
           users: state.users.filter(user => user.id !== action.id)
         }
       }
 
       case ADD_USER: {
-        state.users.push(action.user);
-        return state;
+        return {
+          ...state,
+          users: [
+            ...state.users,
+            action.user
+          ]
+        }
+      }
+
+      case EDIT_USER: {
+        return {
+          ...state,
+          users: state.users.map(user => {
+            if(user.id !== action.user.id) {
+              return user;
+            }
+            return {
+              ...user,
+              ...action.user
+            }
+          })
+        }
       }
 
       case ADD_CURRENCIES: {

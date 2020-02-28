@@ -1,82 +1,70 @@
 {
-    "users": [
-        {
-            "id": 0,
-            "firstName": "Roman",
-            "lastName": "Koval",
-            "login": "qasd43"
-        },
-        {
-            "id": 1,
-            "firstName": "Alex",
-            "lastName": "Querins",
-            "login": "wer4"        
-        },
-        {
-            "id": 2,
-            "firstName": "Jane",
-            "lastName": "Oustin",
-            "login": "ergrg34"
-        },
-        {
-            "id": 3,
-            "firstName": "Warren",
-            "lastName": "Buffet",
-            "login": "erggbE785"
-        }
-    ],
-    "accounts": [
-        {
-            "id": 0,
-            "ownerId": 0,
-            "currency": 0,
-            "balance": 2334.34
-        },
-        {
-            "id": 1,
-            "ownerId": 1,
-            "currency": 0,
-            "balance": 1200
-        },
-        {
-            "id": 2,
-            "ownerId": 1,
-            "currency": 0,
-            "balance": 0.25
-        },
-        {
-            "id": 3,
-            "ownerId": 2,
-            "currency": 3,
-            "balance": 74.03
-        },
-        {
-            "id": 4,
-            "ownerId": 3,
-            "currency": 1,
-            "balance": 14178
-        },
-        {
-            "id": 5,
-            "ownerId": 3,
-            "currency": 0,
-            "balance": 10127.32
-        },
-        {
-            "id": 6,
-            "ownerId": 3,
-            "currency": 0,
-            "balance": 74000
-        }
-    ],
-    "currencies": [
-        {
-            "id": 0,
-            "name": "USD"
-        },
-        {
-            "id": 1,
-            "name": "EUR"
-        }
-    ]
+  "users": [
+    {
+      "id": 0,
+      "firstName": "Roman",
+      "lastName": "Koval",
+      "login": "qasd43"
+    },
+    {
+      "id": 1,
+      "firstName": "Alex",
+      "lastName": "Querins",
+      "login": "wer4"
+    }
+  ],
+  "accounts": [
+    {
+      "id": 0,
+      "ownerId": 0,
+      "currency": 0,
+      "balance": 2334.34
+    },
+    {
+      "id": 1,
+      "ownerId": 1,
+      "currency": 0,
+      "balance": 1200
+    },
+    {
+      "id": 2,
+      "ownerId": 1,
+      "currency": 0,
+      "balance": 0.25
+    },
+    {
+      "id": 3,
+      "ownerId": 2,
+      "currency": 3,
+      "balance": 74.03
+    },
+    {
+      "id": 4,
+      "ownerId": 3,
+      "currency": 1,
+      "balance": 14178
+    },
+    {
+      "id": 5,
+      "ownerId": 3,
+      "currency": 0,
+      "balance": 10127.32
+    },
+    {
+      "id": 6,
+      "ownerId": 3,
+      "currency": 0,
+      "balance": 74000
+    }
+  ],
+  "currencies": [
+    {
+      "id": 0,
+      "name": "USD"
+    },
+    {
+      "id": 1,
+      "name": "EUR"
+    }
+  ]
 }

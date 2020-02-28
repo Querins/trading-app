@@ -1,6 +1,7 @@
 import React from 'react';
 import ClientsTable from './ClientsTable';
 import AccountTable from './AccountTable';
+import EditPanel from './EditPanel';
 
 class App extends React.Component {
 
@@ -9,6 +10,7 @@ class App extends React.Component {
       <div className="container">
         <ClientsTable />
         <AccountTable />
+        <EditPanel />
       </div>
     );
   }
