@@ -1,8 +1,7 @@
 import React from 'react';
-import {addUsers} from '../actions/actions';
 import { connect } from 'react-redux';
-import { selectUser, deleteUser } from '../actions/actions'
-import '../styles/button.css'
+import { addUsers, selectUser, deleteUser } from '../actions/actions'
+import '../styles/ClientsTable.css'
 
 class ClientsTable extends React.Component {
 

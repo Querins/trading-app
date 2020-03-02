@@ -38,14 +38,13 @@ class EditPanel extends React.Component {
         })
         .then(resp => resp.json())
         .then(data => {
-            debugger;
             user.id = data.id;
             this.props.dispatch(addUser(user))
         });
     }
 
     editUser(user) {
-        fetch('http://localhost:8080/users/', {
+        fetch(`http://localhost:8080/users/${user.id}`, {
             method: 'put',
             body: JSON.stringify(user)
         }).then(this.props.dispatch(editUser(user)))
@@ -76,7 +75,6 @@ class EditPanel extends React.Component {
 
         return (
             <div>
-                <h1>{`${selectedUser == null ? "Add" : "Edit"} User`}</h1>
                 <form onSubmit={this.handleClick}>
                     <label htmlFor="fname">First Name</label>
                     <input type="text" id="fname" name="firstName" placeholder="Your name.." value={this.state.firstName} onChange={this.handleChange.bind(this)}/>

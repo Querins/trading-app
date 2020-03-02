@@ -37,6 +37,7 @@ export default (state = initialState, action) => {
       case ADD_USER: {
         return {
           ...state,
+          selectedUser: null,
           users: [
             ...state.users,
             action.user
@@ -60,8 +61,10 @@ export default (state = initialState, action) => {
       }
 
       case ADD_CURRENCIES: {
-        state.currencies.push(action.currencies);
-        return state;
+        return {
+          ...state,
+          currencies: action.currencies
+        }
       }
 
       case SELECT_USER: {
