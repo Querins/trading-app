@@ -44,9 +44,16 @@ class EditPanel extends React.Component {
     }
 
     editUser(user) {
+        debugger;
         fetch(`http://localhost:8080/users/${user.id}`, {
             method: 'put',
-            body: JSON.stringify(user)
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                firstName: user.firstName,
+                lastName: user.lastName
+            })
         }).then(this.props.dispatch(editUser(user)))
     }
 
