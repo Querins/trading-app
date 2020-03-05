@@ -1,18 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addAccounts } from '../actions/actions'
-import { addCurrencies } from '../actions/actions'
+import { addAccounts, addCurrencies } from '../actions/actions'
+import { fetchAccounts, fetchCurrencies } from '../services/networkService'
 
 class AccountInfo extends React.Component {
   
   componentDidMount() {
     
-    fetch('http://localhost:8080/accounts')
-    .then(resp => resp.json())
+    fetchAccounts()
     .then(accounts => this.props.dispatch(addAccounts(accounts)));
 
-    fetch('http://localhost:8080/currencies')
-    .then(resp => resp.json())
+    fetchCurrencies()
     .then(currencies => this.props.dispatch(addCurrencies(currencies)));
   }
   

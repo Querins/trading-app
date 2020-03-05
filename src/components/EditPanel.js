@@ -1,6 +1,7 @@
 import { addUser, editUser } from '../actions/actions';
 import React from 'react';
 import { connect } from 'react-redux';
+import { requestEditUser, requestAddUser } from '../services/networkService'
 import '../styles/EditPanel.css'
 
 class EditPanel extends React.Component {
@@ -19,8 +20,8 @@ class EditPanel extends React.Component {
     }
 
     makeLogin(length) {
-        var result           = '';
-        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;
         for ( var i = 0; i < length; i++ ) {
            result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -29,14 +30,7 @@ class EditPanel extends React.Component {
     }
 
     addUser(user) {
-        fetch('http://localhost:8080/users/', {
-            method: 'post',
-            body: JSON.stringify(user),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(resp => resp.json())
+        requestAddUser(user)
         .then(data => {
             user.id = data.id;
             this.props.dispatch(addUser(user))
@@ -44,17 +38,7 @@ class EditPanel extends React.Component {
     }
 
     editUser(user) {
-        debugger;
-        fetch(`http://localhost:8080/users/${user.id}`, {
-            method: 'put',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                firstName: user.firstName,
-                lastName: user.lastName
-            })
-        }).then(this.props.dispatch(editUser(user)))
+        requestEditUser(user).then(this.props.dispatch(editUser(user)))
     }
 
     handleClick(e) {

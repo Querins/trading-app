@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addUsers, selectUser, deleteUser } from '../actions/actions'
+import { requestUserDelete, fetchUsers } from '../services/networkService'
 import '../styles/ClientsTable.css'
 
 class ClientsTable extends React.Component {
 
   componentDidMount() {
-      fetch('http://localhost:8080/users')
-      .then(resp => resp.json())
+    fetchUsers()
       .then(users => this.props.dispatch(addUsers(users)));
   }
 
@@ -63,9 +63,7 @@ const mapDispatchToProps = dispatch => {
   return {
     selectUser: user => dispatch(selectUser(user)),
     deleteUser: user => {
-      fetch(`http://localhost:8080/users/${user.id}`, {
-        method: 'delete'
-      })
+      requestUserDelete(user)
       .then(dispatch(deleteUser(user.id)))
     },
     dispatch
